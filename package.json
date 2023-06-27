@@ -1,0 +1,20 @@
+{
+  "name": "web",
+  "description": "To build a web framework with TS",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "json-server": "^0.16.3"
+  },
+  "scripts": {
+    "start:parcel": "npx parcel index.html",
+    "start:db": "json-server -w db.json"
+  },
+  "keywords": [],
+  "author": "Aman",
+  "license": "ISC",
+  "devDependencies": {
+    "buffer": "^6.0.3"
+  }
+}
