@@ -1,46 +1,22 @@
-import { IUserProps, Callback } from '../types'
-import axios from 'axios'
+import { IUserProps } from '../types'
 import { config } from '../config'
+import { Eventing } from './Eventing'
+import { Sync } from './Sync'
+import { Attributes } from './Attributes'
 
+const rootUrl = `${config.backendUrl}/users`
 export class User {
-  // event is an obj where each key is a string and mapped value for every key is an array of Callback fn
-  events: { [key: string]: Callback[] } = {}
+  // **Hard Coded**
+  // Reason for hardcoding it rather than providing as an argument in constructor
+  // is event model class is going to have some events associated with it.
+  // There does not exist any case where we will want to switch eventing
+  // class with any other class
+  events: Eventing = new Eventing()
 
-  constructor(private data: IUserProps) {}
+  // **Hard Coded**
+  // Although this can be changed as a contructor arg enabling us to switch
+  // one usecase can be we have a diff class which sync data to local storage on frontend
+  sync: Sync<IUserProps> = new Sync<IUserProps>(rootUrl)
 
-  get(propName: string): string | number {
-    return this.data[propName]
-  }
-  set(updatedProps: IUserProps): void {
-    Object.assign(this.data, updatedProps)
-  }
-  on(eventName: string, callback: Callback): void {
-    const handler = this.events[eventName] || []
-    handler.push(callback)
-    this.events[eventName] = handler
-  }
-  trigger(eventName: string): void {
-    const handler = this.events[eventName]
-    if (handler && handler.length !== 0) {
-      handler.forEach((callback: Callback) => {
-        callback()
-      })
-    }
-  }
-  async fetch(): Promise<IUserProps> {
-    const user: IUserProps = (
-      await axios.get(`${config.backendUrl}/users/${this.get('id')}`)
-    ).data
-    return user
-  }
-  async save(): Promise<void> {
-    const id = this.get('id')
-    if (id) {
-      //update or PUT
-      await axios.put(`${config.backendUrl}/users/${this.get('id')}`, this.data)
-    } else {
-      // POST
-      await axios.post(`${config.backendUrl}/users/`, this.data)
-    }
-  }
+  constructor(public attributes: Attributes<IUserProps>) {}
 }

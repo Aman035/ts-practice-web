@@ -5,4 +5,8 @@ export interface IUserProps {
   age?: number
 }
 
+export interface IHasId {
+  id?: number
+}
+
 export type Callback = () => void
