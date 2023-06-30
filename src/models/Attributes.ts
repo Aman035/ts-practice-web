@@ -3,7 +3,10 @@
 export class Attributes<T extends object> {
   constructor(private data: T) {}
 
-  get(propName: string): string | number {
+  // **VIMP**
+  // K type specify that fn takes only key of T
+  // Fn rutrns the key values of T
+  get<K extends keyof T>(propName: K): T[K] {
     return this.data[propName]
   }
   set(updatedProps: T): void {
