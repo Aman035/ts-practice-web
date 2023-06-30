@@ -89,3 +89,9 @@ All fn are still tied to User class making it less reusable
 The variables events, attributes, sync are public which is not not desirable since we would want devs to use only the functions
 Types of these variables r same as type of classes which means they will not be swapped easily.
 user.sync is of type Sync, if we want to swap it out we need to specifiy a generalized interface which should be specified.
+
+#### V5
+
+Addressed all the issues of V4 by defining generic class Modal with specific interfaces.
+Reason of Using Inheritence instead of Composition in User class - If we had used Composition then again we would need to call User.modal.get and so on and we would again need some getter declarations. Also every user has a base modal ( has a relationship ).
+Also this base modal is not something which we ever want to swap so inheritence seems to be a better choice here.

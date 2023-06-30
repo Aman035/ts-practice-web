@@ -1,13 +1,10 @@
-import { Attributes } from './models/Attributes'
 import { User } from './models/User'
-import { IUserProps } from './types'
 
 const create = async () => {
-  const user = new User(new Attributes<IUserProps>({ id: 1, age: 0 }))
-  user.on('save', () => {
-    console.log('User was saved')
+  const user = User.buildUser({ name: 'aman', age: 22, id: 1 })
+  user.on('change', () => {
+    console.log(user)
   })
-  // await user.set({ name: 'New Name' })
-  await user.save()
+  await user.fetch()
 }
 create()

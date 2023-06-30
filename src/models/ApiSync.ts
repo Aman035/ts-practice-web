@@ -9,7 +9,7 @@ import { IHasId } from '../types'
  */
 // **<T extends IHasId>**
 // to make sure T has an optional property called id to avoid Ts errors
-export class Sync<T extends IHasId> {
+export class ApiSync<T extends IHasId> {
   constructor(public rootUrl: string) {}
 
   fetch = async (id: number): Promise<T> => {
