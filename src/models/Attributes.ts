@@ -6,10 +6,13 @@ export class Attributes<T extends object> {
   // **VIMP**
   // K type specify that fn takes only key of T
   // Fn rutrns the key values of T
-  get<K extends keyof T>(propName: K): T[K] {
+  get = <K extends keyof T>(propName: K): T[K] => {
     return this.data[propName]
   }
-  set(updatedProps: T): void {
+  set = (updatedProps: T): void => {
     Object.assign(this.data, updatedProps)
+  }
+  getAll = (): T => {
+    return this.data
   }
 }

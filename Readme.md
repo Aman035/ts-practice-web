@@ -79,3 +79,13 @@ const name = user.attributes.get('name');
 const age = user.attributes.get('age');
 user.sync.save({name: name, age: age});
 ```
+
+#### V4
+
+Added getters and some fn in user class which makes accessing different fn much easy.
+Also changed to arrow fns to create bound functions.
+<u>Issues</u>
+All fn are still tied to User class making it less reusable
+The variables events, attributes, sync are public which is not not desirable since we would want devs to use only the functions
+Types of these variables r same as type of classes which means they will not be swapped easily.
+user.sync is of type Sync, if we want to swap it out we need to specifiy a generalized interface which should be specified.

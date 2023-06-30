@@ -13,7 +13,7 @@ export class Eventing {
    * @param eventName
    * @param callback
    */
-  on(eventName: string, callback: Callback): void {
+  on = (eventName: string, callback: Callback): void => {
     const handler = this.events[eventName] || []
     handler.push(callback)
     this.events[eventName] = handler
@@ -22,7 +22,7 @@ export class Eventing {
    * Trigers a specific event
    * @param eventName
    */
-  trigger(eventName: string): void {
+  trigger = (eventName: string): void => {
     const handler = this.events[eventName]
     if (handler && handler.length !== 0) {
       handler.forEach((callback: Callback) => {

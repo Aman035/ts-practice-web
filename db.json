@@ -1,39 +1,24 @@
 {
   "users": [
     {
-      "name": "Aman",
-      "age": 22,
-      "id": 1
+      "id": 1,
+      "age": 0
     },
     {
-      "name": "Aman",
-      "age": 22,
+      "name": "New Name",
       "id": 2
     },
     {
-      "name": "Aman",
-      "age": 22,
+      "name": "New Name",
       "id": 3
     },
     {
-      "name": "Aman",
-      "age": 22,
+      "name": "New Name",
       "id": 4
     },
     {
-      "name": "Aman",
-      "age": 22,
+      "name": "New Name",
       "id": 5
-    },
-    {
-      "name": "Aman",
-      "age": 22,
-      "id": 6
-    },
-    {
-      "name": "Aman",
-      "age": 22,
-      "id": 7
     }
   ]
 }

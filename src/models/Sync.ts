@@ -12,11 +12,11 @@ import { IHasId } from '../types'
 export class Sync<T extends IHasId> {
   constructor(public rootUrl: string) {}
 
-  async fetch(id: number): Promise<T> {
+  fetch = async (id: number): Promise<T> => {
     const user: T = (await axios.get(`${this.rootUrl}/${id}`)).data
     return user
   }
-  async save(data: T): Promise<T> {
+  save = async (data: T): Promise<T> => {
     const { id } = data
     if (id) {
       //update or PUT
