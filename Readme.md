@@ -114,3 +114,7 @@ Imp Points to Note
 
 1. UserForm is implemented as chld of View class using Inheritence. This could also be achieved using composition but that would be more troublesome and would be bi-drectional because some generic fn of View would be using specific fn od userForm. So inheritence seems to be a better option
 2. Generic type of View - We assumed that only a model can call a View class, hence the type, we could have just created an interface containing on fn and that would also work, but that approach would not have been ideal.
+
+#### V9
+
+Created UserEdit , UserShow where we implemented nested element logic by defining regions logic in View Class
