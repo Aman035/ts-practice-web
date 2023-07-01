@@ -100,3 +100,9 @@ Also this base modal is not something which we ever want to swap so inheritence 
 
 Building up a generic collection class with deserialize method ie which takes data of some type and convert it to some other type
 This collection class can be used to create collection of any modal class. ( We use it to create user collection in this project )
+
+### V7
+
+Set up a UserView class to display user info, have some events, updates some info of user and rerenders DOM similar to React based approach
+<u>Issues</u>
+This is a a non-generic class and is not at all reusable

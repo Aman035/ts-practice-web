@@ -1,10 +1,13 @@
 import { User } from './models/User'
+import { UserForm } from './views/UserForm'
 
-const create = async () => {
-  const userCollection = User.buildUserCollection()
-  userCollection.on('change', () => {
-    console.log(userCollection)
-  })
-  await userCollection.fetch()
+const rootElement = document.getElementById('root')
+if (rootElement) {
+  const userForm = new UserForm(
+    rootElement,
+    User.buildUser({ name: 'NAME', age: 20 })
+  )
+  userForm.render()
+} else {
+  throw new Error('root Element not found')
 }
-create()

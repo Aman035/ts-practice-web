@@ -25,4 +25,9 @@ export class User extends Modal<IUserProps> {
       return User.buildUser(json)
     })
   }
+
+  setRandomAge = () => {
+    const age = Math.round(Math.random() * 100)
+    this.set({ age })
+  }
 }
