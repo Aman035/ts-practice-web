@@ -95,3 +95,8 @@ user.sync is of type Sync, if we want to swap it out we need to specifiy a gener
 Addressed all the issues of V4 by defining generic class Modal with specific interfaces.
 Reason of Using Inheritence instead of Composition in User class - If we had used Composition then again we would need to call User.modal.get and so on and we would again need some getter declarations. Also every user has a base modal ( has a relationship ).
 Also this base modal is not something which we ever want to swap so inheritence seems to be a better choice here.
+
+#### V6
+
+Building up a generic collection class with deserialize method ie which takes data of some type and convert it to some other type
+This collection class can be used to create collection of any modal class. ( We use it to create user collection in this project )

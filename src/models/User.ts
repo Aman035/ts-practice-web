@@ -4,6 +4,7 @@ import { Eventing } from './Eventing'
 import { ApiSync } from './ApiSync'
 import { Attributes } from './Attributes'
 import { Modal } from './Modal'
+import { Collection } from './Collection'
 
 const rootUrl = `${config.backendUrl}/users`
 /**
@@ -12,11 +13,16 @@ const rootUrl = `${config.backendUrl}/users`
 export class User extends Modal<IUserProps> {
   static buildUser(data: IUserProps): User {
     // when we don't define any contructor it takes automatically from parent class
-    // otherwiss have a constructor with super fn
+    // otherwise have a constructor with super fn
     return new User(
       new Attributes<IUserProps>(data),
       new ApiSync<IUserProps>(rootUrl),
       new Eventing()
     )
+  }
+  static buildUserCollection(): Collection<User, IUserProps> {
+    return new Collection(rootUrl, (json: IUserProps) => {
+      return User.buildUser(json)
+    })
   }
 }
