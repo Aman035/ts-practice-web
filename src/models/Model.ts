@@ -1,6 +1,6 @@
 import { IAttributes, IEvents, IHasId, ISync } from '../types'
 
-export class Modal<T extends IHasId> {
+export class Model<T extends IHasId> {
   // private variables with defined interfaces to enable smooth swapping of classes
   constructor(
     private attributes: IAttributes<T>,

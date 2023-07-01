@@ -101,8 +101,16 @@ Also this base modal is not something which we ever want to swap so inheritence 
 Building up a generic collection class with deserialize method ie which takes data of some type and convert it to some other type
 This collection class can be used to create collection of any modal class. ( We use it to create user collection in this project )
 
-### V7
+#### V7
 
 Set up a UserView class to display user info, have some events, updates some info of user and rerenders DOM similar to React based approach
 <u>Issues</u>
 This is a a non-generic class and is not at all reusable
+
+#### V8
+
+Created a Generic class View
+Imp Points to Note
+
+1. UserForm is implemented as chld of View class using Inheritence. This could also be achieved using composition but that would be more troublesome and would be bi-drectional because some generic fn of View would be using specific fn od userForm. So inheritence seems to be a better option
+2. Generic type of View - We assumed that only a model can call a View class, hence the type, we could have just created an interface containing on fn and that would also work, but that approach would not have been ideal.
